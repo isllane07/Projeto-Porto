@@ -1,0 +1,36 @@
+<div class="container">
+  <header>
+    <h2>Banco de Sangue</h2>
+  </header>
+
+  <!-- Formulário de Adição e Edição -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="formulario">
+    <div class="campo">
+      <label for="nome">Nome</label>
+      <input id="nome" formControlName="nome" type="text" placeholder="Nome" />
+    </div>
+    <div class="campo">
+      <label for="idade">Idade</label>
+      <input id="idade" formControlName="idade" type="number" placeholder="Idade" />
+    </div>
+    <div class="campo">
+      <label for="tipoSanguineo">Tipo Sanguíneo</label>
+      <input id="tipoSanguineo" formControlName="tipoSanguineo" type="text" placeholder="Tipo Sanguíneo" />
+    </div>
+    <button type="submit" class="botao-submit">{{ editarDoador ? 'Atualizar' : 'Adicionar' }}</button>
+  </form>
+
+  <hr class="linha-separadora" />
+
+  <!-- Lista de Doadores -->
+  <h2>Doadores</h2>
+  <ul class="lista-doadores">
+    <li *ngFor="let doador of doadores" class="item-doador">
+      <span class="info-doador">{{ doador.nome }} - {{ doador.idade }} anos - {{ doador.tipoSanguineo }}</span>
+      <div class="acoes">
+        <button (click)="editar(doador)" class="botao-editar">Editar</button>
+        <button (click)="remover(doador.id)" class="botao-remover">Remover</button>
+      </div>
+    </li>
+  </ul>
+</div>

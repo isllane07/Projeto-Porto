@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'banco-sangue';
-}
+    // A variável imagePath contém o caminho da imagem
+    imagePath: string = 'assets/logo';
+  }
+
+
+
